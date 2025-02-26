@@ -45,6 +45,8 @@ print("Элементы множества:", numbers_set)
 
 #Метод
 numbers_set.add(60)
+
+numbers_set.remove(20)
 print("После добавления 60:", numbers_set)
 
 #Функции
