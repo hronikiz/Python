@@ -1,3 +1,4 @@
+#List
 numbers = [10, 20, 30, 40, 50]
 
 print("Первый элемент:", numbers[0])
@@ -8,18 +9,21 @@ print("Обновленный список:", numbers)
 
 print("Срез (первые три элемента):", numbers[:3])
 
+#Метод
 numbers.append(60)
 print("После добавления элемента:", numbers)
 
+#Функции
 print("Длина списка:", len(numbers))
 print("Сумма элементов:", sum(numbers))
 
-print("Есть ли число 30 в списке?", 30 in numbers)  
-new_numbers = numbers + [70, 80]  
-print("Объединенный список:", new_numbers)  
-print("Дублированный список:", numbers * 2)  
+#Операторы
+print("Есть ли число 30 в списке?", 30 in numbers)
+new_numbers = numbers + [70, 80]
+print("Объединенный список:", new_numbers)
+print("Дублированный список:", numbers * 2)
 
-
+#----------------Tuple------------------
 data_tuple = (5, 15, 25, 35, 45)
 
 print("Тип данных:", type(data_tuple))
@@ -29,24 +33,30 @@ print("Последний элемент:", data_tuple[-1])
 
 print("Срез (со второго по четвертый):", data_tuple[1:4])
 
+#Функции
 print("Длина кортежа:", len(data_tuple))
 print("Сумма элементов:", sum(data_tuple))
 print("Максимальный элемент:", max(data_tuple))
 
+#Set
 numbers_set = {10, 20, 30, 40, 50, 20, 30, 10}
 
 print("Элементы множества:", numbers_set)
 
+#Метод
 numbers_set.add(60)
 print("После добавления 60:", numbers_set)
 
+#Функции
 print("Количество элементов в множестве:", len(numbers_set))
+print("Сумма элементов: ", sum(numbers_set))
+print("Максимальный элемент:", max(numbers_set))
 
-
+#------------Dictionary----------
 text_dict = {
-    "имя": "Алексей",
+    "имя": "Игнат",
     "город": "Кишинёв",
-    "возраст": 25
+    "возраст": 19
 }
 
 num_dict = {
@@ -61,20 +71,22 @@ print("Город:", text_dict["город"])
 print("Число 1:", num_dict[1])
 print("Число 2:", num_dict[2])
 
-print("Возраст через get():", text_dict.get("возраст", "Не указано"))
-text_dict.update({"возраст": 26, "страна": "Молдова"})
+#Методы
+print("Возраст через get():", text_dict.get("возраст"))
+text_dict.update({"возраст": 20, "страна": "Молдова"})
 print("Обновленный словарь:", text_dict)
 deleted_value = num_dict.pop(3)
 print("Удаленное значение:", deleted_value)
 print("Словарь после удаления:", num_dict)
 
+#Функции
 print("Количество элементов в text_dict:", len(text_dict))
 print("Отсортированные ключи num_dict:", sorted(num_dict))
 
 
 numbers_tuple = (5, 15, 25)
 numbers_list = list(numbers_tuple)
-numbers_list.append(35)  
+numbers_list.append(35)
 
 print("Исходный кортеж:", numbers_tuple)
 print("Преобразованный список:", numbers_list)
@@ -93,8 +105,7 @@ print(info1)
 print(info2)
 print(info3)
 
-
-age = int(input("Введите ваш возраст: "))
+age = int((input("Введите ваш возраст: ")))
 
 future_age = age + 5
 
