@@ -1,3 +1,62 @@
+while True:
+    value = input("Введите число: ")
+    if value.isdigit():
+     number = int(value)
+     if number < 0:
+        print("Число отрицательное.")
+        break
+     elif number == 0:
+        print("Вы ввели ноль.")
+        break
+     else:
+        print("Число положительное.")
+        break
+    else:
+        print("Ошибка: введите корректное число.")
+
+
+   list_items = ['яблоко', 'банан', 'яблоко', 'груша', 'банан', 'яблоко']
+   dict_items = {'a': 'яблоко', 'b': 'банан', 'c': 'груша', 'd': 'яблоко'}
+
+   target = 'яблоко'
+   counter = 0
+
+# Подсчет в списке
+   for item in list_items:
+     if item == target:
+        counter += 1
+
+# Подсчет в словаре
+   for key in dict_items:
+     if dict_items[key] == target:
+        counter += 1
+
+   print(f"Значение '{target}' встречается {counter} раз(а).")
+
+   while True:
+        print("\n--- Меню ---")
+        print("1. Показать список")
+        print("2. Добавить товар")
+        print("3. Удалить товар")
+        print("4. Выход")
+
+        choice = input("Выберите опцию (1-4): ")
+
+        if choice == '1':
+            fn.show_items()
+        elif choice == '2':
+            fn.add_item()
+        elif choice == '3':
+            fn.remove_item()
+        elif choice == '4':
+            print("Выход из программы.")
+            break
+        else:
+            print("Неверный выбор. Попробуйте снова.")
+
+if __name__ == "__main__":
+    main()
+
 import functions as func
 
 shopping_list = []
