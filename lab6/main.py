@@ -1,12 +1,12 @@
 def number(number):
     if number.startswith("+373") and len(number) == 12 and number[4:].isdigit():
-        return True
+        return number[4] in "678"  
     elif number.startswith("00373") and len(number) == 13 and number[5:].isdigit():
-        return True
+        return number[5] in "678"
     elif number.startswith("0") and len(number) == 9 and number[1:].isdigit():
-        return True
+        return number[1] in "678"
     elif len(number) == 8 and number.isdigit():
-        return True
+        return number[0] in "678"
     else:
         return False
 
