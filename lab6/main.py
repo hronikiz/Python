@@ -1,22 +1,16 @@
-def number(number):
-    if number.startswith("+373") and len(number) == 12 and number[4:].isdigit():
-        return number[4] in "678"  
-    elif number.startswith("00373") and len(number) == 13 and number[5:].isdigit():
-        return number[5] in "678"
-    elif number.startswith("0") and len(number) == 9 and number[1:].isdigit():
-        return number[1] in "678"
-    elif len(number) == 8 and number.isdigit():
-        return number[0] in "678"
-    else:
-        return False
+import re
+
+def is_valid_phone(number):
+    pattern = r'^(\+373|00373|0)?\d{8}$'
+    return re.fullmatch(pattern, number) is not None
 
 while True:
     try:
         phone = input("Введите номер телефона Молдовы: ")
-        if number(phone):
+        if is_valid_phone(phone):
             print(f"Номер принят: {phone}")
             break
         else:
-            raise ValueError("Неверный формат номера телефона. Попробуйте снова.")
-    except ValueError as e:
-        print(e)
+            raise ValueError("Неверный формат номера телефона.")
+    except ValueError as ve:
+        print(ve)
