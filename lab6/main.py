@@ -1,16 +1,18 @@
 import re
 
-def valid(number):
-    pattern = r'^(\+373|00373|0)?\d{8}$'
-    return re.fullmatch(pattern, number) is not None
+def is_valid_moldova_phone(number):
+    pattern = r'^(\+373\d{8}|00373\d{8}|0\d{8}|\d{8})$'
+    return re.fullmatch(pattern, number)
 
 while True:
     try:
-        phone = input("Введите номер телефона Молдовы: ")
-        if valid(phone):
+        phone = input("Введите номер телефона Молдовы: ").strip()
+        
+        if is_valid_moldova_phone(phone):
             print(f"Номер принят: {phone}")
             break
         else:
-            raise ValueError("Неверный формат номера телефона.")
-    except ValueError as ve:
-        print(ve)
+            print("Неверный формат номера. Попробуйте снова.")
+    
+    except Exception as error:
+        print(f"Произошла ошибка: {error}. Пожалуйста, попробуйте снова.")
