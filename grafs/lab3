@@ -40,7 +40,7 @@ if nodes:
     tree = algoritm(graph, start, nodes)
 
     if len(tree) == len(nodes) - 1:
-        print("\nРебра минимального остовного дерева (u, v, вес):")
+        print("\nРебра минимального остовного дерева:")
         for u, v, w in tree:
             print(f"{u} - {v} : {w}")
     else:
