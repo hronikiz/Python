@@ -1,0 +1,47 @@
+print("Введите рёбра и вес:")
+
+graph = {}
+nodes = set()
+
+while True:
+    line = input()
+    if not line.strip():
+        break
+    u, v, w = map(int, line.split())
+    if u not in graph:
+        graph[u] = []
+    if v not in graph:
+        graph[v] = []
+    graph[u].append((v, w))
+    graph[v].append((u, w))
+    nodes.add(u)
+    nodes.add(v)
+
+def algoritm(graph, start, nodes):
+    tree = []
+    visited = set([start])
+
+    while len(visited) < len(nodes):
+        min = None  
+        for u in visited:
+            for v, w in graph.get(u, []):
+                if v not in visited:
+                    if (min is None) or (w < min[0]):
+                        min = (w, u, v)
+        if min is None:
+            break
+        w, u, v = min
+        visited.add(v)
+        tree.append((u, v, w))
+    return tree
+
+if nodes:
+    start = min(nodes)
+    tree = algoritm(graph, start, nodes)
+
+    if len(tree) == len(nodes) - 1:
+        print("\nРебра минимального остовного дерева (u, v, вес):")
+        for u, v, w in tree:
+            print(f"{u} - {v} : {w}")
+    else:
+        print("Граф не связный, минимальное остовное дерево построить нельзя")
