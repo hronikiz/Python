@@ -1,0 +1,34 @@
+from itertools import combinations
+
+print("Введите рёбра:")
+edges = []
+nodes = set()
+
+while True:
+    line = input()
+    if not line.strip():
+        break
+    u, v = map(int, line.split())
+    edges.append((u, v))
+    nodes.add(u)
+    nodes.add(v)
+
+def is_matching(edge_set):
+    used = set()
+    for u, v in edge_set:
+        if u in used or v in used:
+            return False
+        used.add(u)
+        used.add(v)
+    return True
+
+max_match = []
+for r in range(1, len(edges) + 1):
+    for combo in combinations(edges, r):
+        if is_matching(combo) and len(combo) > len(max_match):
+            max_match = combo
+
+print("\nМаксимальное паросочетание:")
+for u, v in max_match:
+    print(f"{u} - {v}")
+print("Размер паросочетания:", len(max_match))
