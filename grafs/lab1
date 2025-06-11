@@ -13,7 +13,7 @@ while True:
     nodes.add(u)
     nodes.add(v)
 
-def is_matching(edge_set):
+def matching(edge_set):
     used = set()
     for u, v in edge_set:
         if u in used or v in used:
